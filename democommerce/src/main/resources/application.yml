@@ -1,0 +1,36 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: "local"
+  application:
+    name: democommerce
+  flyway:
+    enabled: true
+    user: admin
+    password: admin
+    schemas: democommerce_schema
+    url: jdbc:h2:mem:democommerce
+    locations: classpath:db.migration
+  h2:
+    console:
+      enabled: true
+      settings:
+        trace: false
+        web-allow-others: false
+  datasource:
+    url: jdbc:h2:mem:democommerce
+    driverClassName: org.h2.Driver
+    username: admin
+    password: admin
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    operationsSorter: method
+    tagsSorter: alpha
