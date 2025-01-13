@@ -11,7 +11,7 @@ spring:
     password: admin
     schemas: democommerce_schema
     url: jdbc:h2:mem:democommerce
-    locations: classpath:db.migration
+    locations: classpath:db/migration
   h2:
     console:
       enabled: true
