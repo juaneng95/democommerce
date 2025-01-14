@@ -1,5 +1,5 @@
 ## Summary
-GitHub: https://github.com/juaneng95/ecommerce
+GitHub: https://github.com/juaneng95/democommerce
 
 ## Technology
 
