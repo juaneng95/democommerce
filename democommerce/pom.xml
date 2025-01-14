@@ -19,12 +19,15 @@
 	<properties>
 		<java.version>21</java.version>
 
-		<springdoc.openapi.version>2.6.0</springdoc.openapi.version>
-		<jackson.databind.nullable.version>0.2.1</jackson.databind.nullable.version>
-		<openapi.generator.maven.plugin.version>6.2.1</openapi.generator.maven.plugin.version>
+		<springdoc-openapi-starter-webmvc-ui.version>2.6.0</springdoc-openapi-starter-webmvc-ui.version>
+		<jackson-databind-nullable.version>0.2.6</jackson-databind-nullable.version>
+		<openapi-generator-maven-plugin.version>7.10.0</openapi-generator-maven-plugin.version>
 
-		<org.mapstruct.version>1.6.3</org.mapstruct.version>
-		<lombok.mapstruct.binding.version>0.2.0</lombok.mapstruct.binding.version>
+		<h2.version>2.3.232</h2.version>
+		<flyway-core.version>11.1.1</flyway-core.version>
+
+		<org-mapstruct.version>1.6.3</org-mapstruct.version>
+		<lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
 		<lombok.version>1.18.34</lombok.version>
 	</properties>
 
@@ -43,34 +46,31 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-validation</artifactId>
-			<version>3.2.4</version>
-		</dependency>
 
 		<!-- SPRINGDOC-OPENAPI-STARTER-WEBMVC-UI -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>${springdoc.openapi.version}</version>
+			<version>${springdoc-openapi-starter-webmvc-ui.version}</version>
 		</dependency>
 		<!-- JACKSON DATABIND NULLABLE -->
 		<dependency>
 			<groupId>org.openapitools</groupId>
 			<artifactId>jackson-databind-nullable</artifactId>
-			<version>${jackson.databind.nullable.version}</version>
+			<version>${jackson-databind-nullable.version}</version>
 		</dependency>
 
 		<!-- FLYWAY CORE -->
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
+			<version>${flyway-core.version}</version>
 		</dependency>
 		<!-- H2 -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
+			<version>${h2.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -78,13 +78,30 @@
 		<dependency>
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct</artifactId>
-			<version>${org.mapstruct.version}</version>
+			<version>${org-mapstruct.version}</version>
 		</dependency>
 		<!-- LOMBOK -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
+		</dependency>
+
+		<!-- Fix vulnerabilities -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>6.1.14</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>6.1.14</version>
+		</dependency>
+		<dependency>
+			<groupId>org.xmlunit</groupId>
+			<artifactId>xmlunit-core</artifactId>
+			<version>2.10.0</version>
 		</dependency>
 	</dependencies>
 
@@ -107,7 +124,7 @@
 						<path>
 							<groupId>org.mapstruct</groupId>
 							<artifactId>mapstruct-processor</artifactId>
-							<version>${org.mapstruct.version}</version>
+							<version>${org-mapstruct.version}</version>
 						</path>
 						<path>
 							<groupId>org.projectlombok</groupId>
@@ -117,7 +134,7 @@
 						<dependency>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok-mapstruct-binding</artifactId>
-							<version>${lombok.mapstruct.binding.version}</version>
+							<version>${lombok-mapstruct-binding.version}</version>
 						</dependency>
 					</annotationProcessorPaths>
 				</configuration>
@@ -139,7 +156,7 @@
 			<plugin>
 				<groupId>org.openapitools</groupId>
 				<artifactId>openapi-generator-maven-plugin</artifactId>
-				<version>${openapi.generator.maven.plugin.version}</version>
+				<version>${openapi-generator-maven-plugin.version}</version>
 				<executions>
 					<!-- Democommerce api spec -->
 					<execution>
