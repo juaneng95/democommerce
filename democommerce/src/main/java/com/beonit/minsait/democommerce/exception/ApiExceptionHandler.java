@@ -9,16 +9,25 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+/**
+ * The Api exception handler class
+ */
 @ControllerAdvice
 @RequiredArgsConstructor
 @Slf4j
 public class ApiExceptionHandler {
 
-  @ExceptionHandler({RuntimeException.class})
-  @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-  @ResponseBody
-  public ResponseEntity unhandledErrors(final Exception e) {
-    log.error("error - {} - {}", e.getMessage(), e.getStackTrace());
-    return new ResponseEntity(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-  }
+    /**
+     * Method to manage the unhandled errors.
+     *
+     * @param e - The exception.
+     * @return The response entity with the message and status 500.
+     */
+    @ExceptionHandler({RuntimeException.class})
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseBody
+    public ResponseEntity unhandledErrors(final Exception e) {
+        log.error("error - {} - {}", e.getMessage(), e.getStackTrace());
+        return new ResponseEntity(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }

@@ -19,6 +19,9 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+/**
+ * Price entity class.
+ */
 @Entity
 @Table(name = "prices", schema = "democommerce_schema")
 @Getter
@@ -28,45 +31,67 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 public class PriceEntity implements Serializable {
 
+    /**
+     * The serial version id.
+     */
     @Serial
     private static final long serialVersionUID = 1L;
 
+    /**
+     * The id.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    // Foreign key of the group string (1 = ZARA).
+    /**
+     * Foreign key of the group string (1 = ZARA).
+     */
     @Column(name = "brand_id", nullable = false)
     private Long brandId;
 
-    // Initial date on which the indicated rate is applied.
+    /**
+     * Initial date on which the indicated rate is applied.
+     */
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "start_date", nullable = false)
     private Timestamp startDate;
 
-    // Final date on which the indicated rate is applied.
+    /**
+     * Final date on which the indicated rate is applied.
+     */
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "end_date", nullable = false)
     private Timestamp endDate;
 
-    // Applicable price rate identifier.
+    /**
+     * Applicable price rate identifier.
+     */
     @Column(name = "price_list", nullable = false)
     private Integer priceList;
 
-    // Product code identifier.
+    /**
+     * Product code identifier.
+     */
     @Column(name = "product_id", nullable = false)
     private Integer productId;
 
-    // Price priority.
+    /**
+     * Price priority.
+     */
     @Column(name = "priority", nullable = false)
     private Short priority;
 
-    // Final sale price.
+    /**
+     * Final sale price.
+     */
     @Column(name = "price", nullable = false, scale = 2)
     private Float price;
 
-    // ISO coin
+    /**
+     * ISO coin
+     */
     @Column(name = "curr", nullable = false, length = 50)
     private String curr;
 }

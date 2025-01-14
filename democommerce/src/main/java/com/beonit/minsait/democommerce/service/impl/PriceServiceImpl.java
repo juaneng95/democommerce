@@ -14,17 +14,29 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * The type Price service.
+ */
 @Service
 @Slf4j
 public class PriceServiceImpl implements PriceService {
     private final PricesRepository pricesRepository;
     private final PriceMapper priceMapper;
 
-    public PriceServiceImpl(PricesRepository pricesRepository, PriceMapper priceMapper){
-      this.pricesRepository = pricesRepository;
-      this.priceMapper = priceMapper;
+    /**
+     * Instantiates a new Price service.
+     *
+     * @param pricesRepository the prices repository
+     * @param priceMapper      the price mapper
+     */
+    public PriceServiceImpl(PricesRepository pricesRepository, PriceMapper priceMapper) {
+        this.pricesRepository = pricesRepository;
+        this.priceMapper = priceMapper;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<PriceDto> getAllPrices() {
 
@@ -32,6 +44,9 @@ public class PriceServiceImpl implements PriceService {
         return pricesRepository.findAll().stream().map(priceMapper::priceEntityToDto).toList();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public PriceQueryDto getPriceByCriteriaQuery(
             Timestamp requiredDate, Integer productId, Long brandId) throws NotFoundPriceException {

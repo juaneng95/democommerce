@@ -8,10 +8,20 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
 
+/**
+ * The interface Prices repository.
+ */
 @Repository
 public interface PricesRepository extends JpaRepository<PriceEntity, Long> {
 
-    // Selecting the price by criteria parameters with limit 1
+    /**
+    * Selecting the price by criteria parameters with limit 1
+    *
+    * @param requiredDate the required date
+    * @param productId    the product id
+    * @param brandId      the brand id
+    * @return the price entity
+    */
     @Query(
             value =
                     "SELECT * FROM DEMOCOMMERCE_SCHEMA.PRICES "

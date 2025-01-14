@@ -13,13 +13,22 @@ import org.springframework.web.bind.annotation.RestController;
 import java.sql.Timestamp;
 import java.util.List;
 
+/**
+ * The type Ecom controller.
+ */
 @RestController
 @RequiredArgsConstructor
 @Slf4j
 public class EcomController implements EcomApi {
 
+    /**
+     * The price service.
+     */
     private final PriceService priceService;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ResponseEntity<List<PriceDto>> getAllPrices() {
 
@@ -29,6 +38,9 @@ public class EcomController implements EcomApi {
         return ResponseEntity.ok(priceDtoList);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ResponseEntity<PriceQueryDto> getPriceByCriteriaQuery(
             String requiredDate, Integer productId, Long brandId) throws NotFoundPriceException {

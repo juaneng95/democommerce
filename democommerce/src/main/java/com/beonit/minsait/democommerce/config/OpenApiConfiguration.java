@@ -4,11 +4,15 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Open api configuration class.
+ */
 @OpenAPIDefinition(
-    info =
+        info =
         @Info(
-            title = "Beonit-Minsait ecommerce artifact",
-            description = "Beonit-Minsait ecommerce API",
-            version = "v1"))
+                title = "Beonit-Minsait ecommerce artifact",
+                description = "Beonit-Minsait ecommerce API",
+                version = "v1"))
 @Configuration
-public class OpenApiConfiguration {}
+public class OpenApiConfiguration {
+}
