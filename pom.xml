@@ -13,7 +13,6 @@
 	<groupId>com.beonit.minsait</groupId>
 	<artifactId>democommerce</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>democommerce</name>
 	<description>Demo project for Beonit and Minsait</description>
 
 	<properties>
